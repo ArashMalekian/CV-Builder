@@ -1,10 +1,14 @@
 import './App.css';
+import { Welcome } from './Components/Welcome/Welcome';
+import {CVContext} from './Contexts/CVContext'
 
 function App() {
   return (
-    <div className="App">
-jhhjvhjv
-    </div>
+      <>
+      <CVContext>
+      <Welcome />
+      </CVContext>
+      </>
   );
 }
 
