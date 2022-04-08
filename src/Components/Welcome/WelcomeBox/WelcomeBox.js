@@ -1,15 +1,33 @@
-import React , {useRef , useState , useEffect} from 'react'
+import React , {useRef , useState , useEffect , useContext} from 'react'
+//context
+import { phonecontext } from '../../../Contexts/CVContext';
 //styles
 import classes from './WelcomeBox.module.scss'
 import Button from '@mui/material/Button'
 import { loginValidate } from '../../../Functions/loginValidates';
+import { Link } from 'react-router-dom';
 
 export const WelcomeBox = () => {
+
+    const context = useContext(phonecontext)
     const [phoneNumber, setPhonNumber] = useState({})
+    const [validate, setValidate] = useState(false)
     const changePhoneNumberHandler = (event) => {
-        setPhonNumber(event.target.value)
-        console.log(phoneNumber);
+        setPhonNumber(event.target.value);
+        context.pNum = event.target.value
     }
+    const validateHandler = () => {
+        if(phoneNumber.length === 11){
+            setValidate(true)
+        }
+        else{
+            setValidate(false)
+        }
+
+    }
+
+ 
+    
     const boxOne = useRef();
     const boxTwo = useRef();
     const hideBoxHandler = () =>{
@@ -26,8 +44,9 @@ export const WelcomeBox = () => {
     }
      useEffect(() => {
         setError(loginValidate(phoneNumber))
-      console.log(error);
-     }, [phoneNumber ,error ])
+        ;
+        validateHandler()
+     }, [phoneNumber])
 
 
     return (
@@ -50,9 +69,18 @@ export const WelcomeBox = () => {
                 {
                     !shower && <div className={classes.error} > {error.err} </div>
                  }
+                 {
+                     validate ? 
+                 <Link to='/personalinfo' className={classes.link} >
                 <Button variant='contained' className={classes.loginbtn}   >
                     ورود / ثبت نام
-                </Button>                
+                </Button>
+                </Link>   
+                :
+                <Button variant='contained' className={classes.loginbtn} disabled  >
+                ورود / ثبت نام
+            </Button>          
+                 }
             </div>
 
         </div>

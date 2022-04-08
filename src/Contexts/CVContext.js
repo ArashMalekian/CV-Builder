@@ -6,7 +6,9 @@ export const phonecontext = createContext();
 
 export const CVContext = (props) => {
 
-    const [pNumber, setPNumber] = useState();
+    const [pNumber, setPNumber] = useState({
+        pNum:0
+    });
 
     return (
         <div>
