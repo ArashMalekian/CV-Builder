@@ -4,16 +4,19 @@ import { Welcome } from './Components/Welcome/Welcome';
 import { PersonalInfo } from './Components/Infos/PersonalInfo/PersonalInfo';
 //contexts
 import {CVContext} from './Contexts/CVContext'
+import { PersonalInfoContext } from './Contexts/PersonalInfoContext';
 
 function App() {
   return (
       <>
+      <PersonalInfoContext>
       <CVContext>
       <Routes>
         <Route path="/personalinfo" element={<PersonalInfo/>}  />
         <Route path='/' element={<Welcome/>} />
       </Routes>
       </CVContext>
+      </PersonalInfoContext>
       </>
   );
 }
