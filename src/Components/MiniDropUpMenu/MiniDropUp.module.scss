@@ -1,0 +1,57 @@
+@import "../../_variable.module.scss";
+
+.btngp{
+    position: absolute;
+    left: 27%;
+    width: 40%;
+    margin-bottom: 10px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 10;
+    bottom: 0;
+    margin: auto;
+    border-radius: 25px;
+    h5{
+        margin: 0;
+    }
+}
+
+.titlebox{
+    background-color: $secondary;
+    border-radius: 25px;
+    padding: 10px;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+.nextbtn{
+    background-color: $secondary !important;
+    color: whitesmoke !important;
+    transition: all 10s linear;
+    width: 50px;
+    border-radius: 25px !important;
+}
+
+.nextbtn:hover{
+    animation-name: sizeChanger;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+
+}
+
+.btncontent{
+    margin: 0;
+}
+
+@keyframes sizeChanger {
+    0%{
+        width: 80px;
+    }
+
+    100%{
+        width: 150px;
+    }
+}

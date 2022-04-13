@@ -1,0 +1,89 @@
+@import '../../../../_variable.module.scss';
+
+.container{
+    width: 50%;
+    height: 100%;
+    background-color: $primery;
+    border-radius: 10px;
+    box-shadow: 0 0 50px gray ;
+    z-index: 5;
+    overflow: hidden;
+    height: 400px;
+}
+
+.personaltitle{
+    background: url('../../../../../public/Pictures/ashkan-forouzani-eBwGgqSt1QA-unsplash.jpg');
+    width: 100%;
+    height: 15%;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.titlebox{
+    background-color: rgba(0, 0, 0, 0.501);
+    height: 100%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h4{
+        margin: 0;
+    }
+}
+
+.contentbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 85%;
+}
+
+.personalinput{
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #c8c8c8;
+    transition: 1s all linear;
+    padding: 2%;
+    text-align: end;
+}
+
+.personalinput:focus{
+    outline: none !important;
+    box-shadow: 0 0 20px gray;
+}
+
+.namebox{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#nameinput{
+    width: 30%;
+    height: 10px;
+}
+
+#jobinput{
+    height: 10px;
+}
+
+.selectbox{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.relselect{
+    color: $secondary-drak;
+}
+.relselect::placeholder{
+    color: $secondary-drak !important;
+    
+}
+

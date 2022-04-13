@@ -22,3 +22,19 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+#datePicker{
+
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #c8c8c8;
+  transition: 1s all linear;
+  padding: 2%;
+  text-align: end;
+}
+
+#datePicker:focus{
+  outline: none !important;
+  box-shadow: 0 0 20px gray;
+}

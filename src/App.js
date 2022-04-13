@@ -5,10 +5,12 @@ import { PersonalInfo } from './Components/Infos/PersonalInfo/PersonalInfo';
 //contexts
 import {CVContext} from './Contexts/CVContext'
 import { PersonalInfoContext } from './Contexts/PersonalInfoContext';
+import { StateContext } from './Contexts/StateContext';
 
 function App() {
   return (
       <>
+      <StateContext>
       <PersonalInfoContext>
       <CVContext>
       <Routes>
@@ -17,6 +19,7 @@ function App() {
       </Routes>
       </CVContext>
       </PersonalInfoContext>
+      </StateContext>
       </>
   );
 }
