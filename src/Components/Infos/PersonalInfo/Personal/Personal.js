@@ -1,10 +1,12 @@
-import React , {useState , useContext} from 'react'
+import React , {useState , useContext , useEffect} from 'react'
 import Select from 'react-select'
 import { PInfoContext } from '../../../../Contexts/PersonalInfoContext';
 import { StatesContext } from '../../../../Contexts/StateContext';
 import {DatePicker} from "react-advance-jalaali-datepicker";
 //style
 import classes from './Personal.module.scss'
+import { Button } from '@mui/material';
+import { PersonalValidate } from '../../../../Functions/PersonalValidate';
 
 const customStyles = {
     option: (provided, state) => ({
@@ -40,6 +42,7 @@ const exemptionOptions = [
   ];
 export const Personal = () => {
    const change  = (unix, formatted)=>{
+       setPersonal({...personal , DOB : formatted})
         console.log(unix) // returns timestamp of the selected value, for example.
         console.log(formatted) // returns the selected value in the format you've entered, forexample, "تاریخ: 1396/02/24 ساعت: 18:30".
     }
@@ -56,7 +59,11 @@ export const Personal = () => {
         name:"",
         lName:"",
         job:"",
-        DOB:""
+        DOB:"",
+        state:"",
+        city:"",
+        relation:"",
+        exemption:"",
     })
 
     const changeHandler = (event) => {
@@ -66,17 +73,42 @@ export const Personal = () => {
             id:item.id,
         }));
         setCity(cityOption)
-        personalContext.state = event .value;
+        personalContext.state = event.value;
+        setPersonal({...personal , state : event.value})
     }
 
     const textChangeHandler = (event) => {
         setPersonal({...personal , [event.target.name] : event.target.value});
-        console.log(personal);
     }
 
-    const DOBHandler = (event) => {
-        console.log(event.target.value);
+    const setcontextHandler  = () =>{
+        personalContext.name = personal.name;
+        personalContext.lName = personal.lName;
+        personalContext.DOB = personal.DOB;
+        personalContext.job = personal.job;
+        console.log(personalContext);
     }
+    const [submit, setSubmit] = useState(false)
+    const submitValidation = () => {
+        if(personal.name && personal.lName && personal.DOB && personal.job && personal.relation && personal.state && personal.city && personal.exemption){
+            setSubmit(true)
+        }
+    }
+    const [error, setError] = useState({})
+    useEffect(() => {
+        setError(PersonalValidate(personal))
+        ;
+        submitValidation()
+     }, [personal])
+
+    const [errShower, setErrShower] = useState({
+        name:false,
+        lName:false,
+        DOB:false,
+        job:false,
+    })
+    const focusHandler = (event) => {
+        setErrShower({...errShower,[event.target.name] : true})}
     return (
         <div className={classes.container} >
             <div className={classes.personaltitle} >
@@ -88,17 +120,25 @@ export const Personal = () => {
             </div>
             <div className={classes.contentbox} >
                 <div className={classes.namebox} >
-                <input className={classes.personalinput} id={classes.nameinput} value={personal.lName} onChange={textChangeHandler} type="text" name='lName' placeholder='نام خانوادگی'  />
-                <input className={classes.personalinput} id={classes.nameinput} value={personal.name} onChange={textChangeHandler} type="text" name='name' placeholder='نام' />
+                    <div>
+                <input className={classes.personalinput} id={classes.nameinput} value={personal.lName} onChange={textChangeHandler} type="text" name='lName' placeholder='نام خانوادگی' onFocus={focusHandler} />
+                 {errShower.lName && <h6>{error.lName}</h6>}
+                    </div>
+                    <div>
+                <input className={classes.personalinput} id={classes.nameinput} value={personal.name} onChange={textChangeHandler} type="text" name='name' placeholder='نام' onFocus={focusHandler} />
+                {errShower.name && <h6>{error.name}</h6>}
+                    </div>
                 </div>
                 <DatePicker
-                    
+                    onFocus={focusHandler}
                     inputComponent={DatePickerInput}
                     placeholder=" تاریخ تولد"
                     format="jYYYY/jMM/jDD"
                     onChange={change}
                     id="datePicker"
                     />
+                {errShower.DOB && <h6>{error.DOB}</h6>}
+
                 <div className={classes.selectbox} >
                 <Select
                 styles={customStyles}
@@ -108,6 +148,7 @@ export const Personal = () => {
                     placeholder="وضعیت تاهل"
                     onChange={(event) => {
                         personalContext.relation = event.value;
+                        setPersonal({...personal , relation:event.value})
                     }}
                     />                 
                 <Select
@@ -118,7 +159,7 @@ export const Personal = () => {
                 placeholder="وضعیت سربازی"
                 onChange={(event) => {
                     personalContext.exemption = event.value;
-                    console.log(personalContext);
+                    setPersonal({...personal , exemption:event.value})
                 }}
                 />   
                 <div> 
@@ -136,15 +177,28 @@ export const Personal = () => {
                 placeholder="شهر"
                 onChange={(event) => {
                     personalContext.city = event.value;
-                    console.log(personalContext);
+                    setPersonal({...personal , city:event.value})
                 }}
                 />
                 </div>        
                 </div>
                
-                <input className={classes.personalinput} id={classes.jobinput} value={personal.job} onChange={textChangeHandler} type="text" name='job' placeholder='حرفه' />
-                {/* <input className={classes.personalinput} id={classes.jobinput} value={personal.DOB} onChange={textChangeHandler} type='date' name='DOB' placeholder='تاریخ تولد' /> */}
+                <input className={classes.personalinput} id={classes.jobinput} value={personal.job} onChange={textChangeHandler} type="text" name='job' placeholder='حرفه' onFocus={focusHandler} />
+                {errShower.job && <h6>{error.job}</h6>}
 
+                {/* <input className={classes.personalinput} id={classes.jobinput} value={personal.DOB} onChange={textChangeHandler} type='date' name='DOB' placeholder='تاریخ تولد' /> */}
+                <div>
+                    {
+                        submit ?
+                    <Button className={classes.submitbtn}  onClick={setcontextHandler} >
+                        ثبت
+                    </Button>
+                    :
+                    <Button className={classes.submitbtndisabled} disabled   >
+                        ثبت
+                    </Button>
+                    }
+                </div>
             </div>
         </div>
     )

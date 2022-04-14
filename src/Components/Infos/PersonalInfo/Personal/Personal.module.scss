@@ -9,6 +9,10 @@
     z-index: 5;
     overflow: hidden;
     height: 400px;
+    h6{
+        margin: 5px 0;
+        color: $error;
+    }
 }
 
 .personaltitle{
@@ -64,8 +68,8 @@
 }
 
 #nameinput{
-    width: 30%;
-    height: 10px;
+    width: 60%;
+    height: 20px;
 }
 
 #jobinput{
@@ -87,3 +91,20 @@
     
 }
 
+.submitbtn{
+    height: 70%;
+    background-color: $secondary !important;
+    font-size: 17px !important;
+    font-weight: bold !important;
+    color: #fff !important;
+    margin-bottom: 2% !important;
+}
+
+.submitbtndisabled{
+    
+    height: 70%;
+    background-color: $secondary !important;
+    font-size: 17px !important;
+    font-weight: bold !important;
+    margin-bottom: 2% !important;
+}
