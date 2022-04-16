@@ -13,6 +13,10 @@ export const PersonalInfoContext = (props) => {
         exemption:"",
         state:"",
         city:"",
+        address:"",
+        phoneNumber:"",
+        mobileNumber:"",
+        email:"",
     })
     return (
         <div>

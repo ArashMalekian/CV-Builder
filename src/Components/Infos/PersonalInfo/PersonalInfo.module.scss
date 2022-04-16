@@ -26,3 +26,11 @@
     margin-top: 2%;
     height: 80%;
 }
+
+@media (max-width : 768px){
+    .contactandpersonal{
+        flex-direction: column;
+        margin: 15px 0 ;
+        height: 100%;
+    }
+}

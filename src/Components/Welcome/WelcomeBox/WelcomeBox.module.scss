@@ -84,3 +84,16 @@
     width: 50%;
     text-decoration: none;
 }
+
+
+@media ( max-width : 768px){
+    .welcomebox{
+        width: 80%;
+    }
+    .loginbox{
+        width: 80%;
+    }
+    .error{
+        margin-top: 24% ;
+    }
+}

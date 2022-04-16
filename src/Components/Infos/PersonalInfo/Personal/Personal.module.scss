@@ -108,3 +108,18 @@
     font-weight: bold !important;
     margin-bottom: 2% !important;
 }
+
+@media (max-width : 768px){
+    .container{
+        width: 90%;
+        margin: 25px 0;
+        margin-bottom: 50px;
+        height: 500px;
+    }
+    .selectbox{
+        flex-direction: column-reverse;
+    }
+    .DatePicker{
+        height: 10px !important;
+    }
+}

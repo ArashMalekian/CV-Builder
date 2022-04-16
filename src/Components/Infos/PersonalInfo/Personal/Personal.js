@@ -130,6 +130,7 @@ export const Personal = () => {
                     </div>
                 </div>
                 <DatePicker
+                    className={classes.DatePicker}
                     onFocus={focusHandler}
                     inputComponent={DatePickerInput}
                     placeholder=" تاریخ تولد"
