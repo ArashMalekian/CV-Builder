@@ -11,6 +11,12 @@
         color: $error;
         margin: 5px 0;
     }
+    blockquote{
+        margin: 0;
+        position: absolute;
+        margin-top: 30px;
+    }
+    
 }
 
 .contacttitle{
@@ -65,6 +71,13 @@
     border:1px solid $secondary-drak !important;
     height: 30px !important;
 }
+.disableplusbtn{
+    font-size: 17px !important;
+    font-weight: bold !important;
+    color: grey!important;
+    border:1px solid grey !important;
+    height: 30px !important;
+}
 .submitbtn{
     height: 30px !important;
     background-color: $secondary !important;
@@ -72,6 +85,15 @@
     font-weight: bold !important;
     color: #fff !important;
     margin-bottom: 2% !important;
+}
+.disablesubmitbtn{
+    height: 30px !important;
+    background-color: $secondary !important;
+    font-size: 17px !important;
+    font-weight: bold !important;
+    color:  grey !important;
+    margin-bottom: 2% !important;
+
 }
 .infobox{
     width: 100%;
@@ -109,4 +131,11 @@
     justify-content: space-evenly;
     align-items: center;
     padding: 2%;
+}
+
+.counter{
+    display:flex;
+    width: 20%;
+    align-items: center;
+    justify-content: space-evenly;
 }

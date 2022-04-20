@@ -1,5 +1,5 @@
 import { Button } from '@mui/material'
-import React , {useContext , useState }  from 'react'
+import React , {useContext , useState , useEffect }  from 'react'
 import Select from 'react-select'
 import AddIcon from '@mui/icons-material/Add';
 import classes from './Certification.module.scss'
@@ -85,8 +85,19 @@ export const Certification = () => {
         setEducation({...education , [event.target.name] : event.target.value });
         console.log(education);
     }
+    const submitHandler = () => {
+        eduContext.education.push(
+            {
+                edu:education.edu,
+                institution:education.institution,
+                degree:education.degree,
+                institutionState:education.institutionState,
+                dateOfGraduated:education.dateOfGraduated,
+            }
+            )
+    }
     const plusHandler = () => {
-        eduContext.push(
+        eduContext.education.push(
             {
                 edu:education.edu,
                 institution:education.institution,
@@ -101,9 +112,19 @@ export const Certification = () => {
             institution:"",
             degree:"",
             institutionState:"",
+            dateOfGraduated:""
             
         })
     }
+    const [disabler, setDisabler] = useState(false)
+    useEffect(() => {
+        if( education.edu.length === 0 || education.institution.length === 0 || education.degree.length === 0 || education.institutionState.length === 0 || education.dateOfGraduated.length === 0 ){
+            console.log(disabler);
+        }
+        else{
+            setDisabler(true)
+        }
+    }, [education])
     return (
 <div className={classes.container} >
             <div className={classes.contacttitle} >
@@ -154,22 +175,44 @@ export const Certification = () => {
                     </div>
                     <div className={classes.itemfooter} >
                         <div className={classes.hintbox} >
+                            {
+                                disabler ?
                             <Button className={classes.plusbtn} onClick={plusHandler} size='small' variant='outlined' >
                                 اضافه
                             <AddIcon sx={{fontSize:'23px'}} />
                             </Button>
+                            :
+                            <Button className={classes.disableplusbtn} onClick={plusHandler} size='small' disabled variant='outlined' >
+                                اضافه
+                            <AddIcon sx={{fontSize:'23px'}} />
+                            </Button>
+                            }
                             <h4>
-                                اگر تمایل به ثبت مدارک بیشتری دارید ، اضاف کنید
+                                اگر تمایل به ثبت مدارک بیشتری دارید ، اضافه کنید
                             </h4>
                         </div>
-                        <h4>
-                            مدارک ثبت شده  :
-
+                        <div className={classes.counter} >
+                            <h4>
                             عدد
-                        </h4>
-                        <Button className={classes.submitbtn} >
+                            </h4>
+                            <h3>
+                            {eduContext.education.length}      
+                            </h3>
+                            <h4>
+                           : مدارک ثبت شده 
+                            </h4>
+                        </div>
+                        {
+                            disabler ?
+                            <Button className={classes.submitbtn} onClick={submitHandler} >
                             ثبت
-                        </Button>
+                            </Button>
+                            :
+                            <Button className={classes.disablesubmitbtn} onClick={submitHandler} >
+                            ثبت
+                            </Button>
+                        }
+                        
                     </div>
                 </div>
         </div>
