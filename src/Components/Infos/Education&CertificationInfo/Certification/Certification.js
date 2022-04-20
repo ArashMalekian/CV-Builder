@@ -86,11 +86,15 @@ export const Certification = () => {
         console.log(education);
     }
     const plusHandler = () => {
-        eduContext.edu.a = education.edu;
-        eduContext.institution.a = education.institution;
-        eduContext.degree.a = education.degree;
-        eduContext.institutionState.a = education.institutionState;
-        eduContext.dateOfGraduated.a = education.dateOfGraduated;
+        eduContext.push(
+            {
+                edu:education.edu,
+                institution:education.institution,
+                degree:education.degree,
+                institutionState:education.institutionState,
+                dateOfGraduated:education.dateOfGraduated,
+            }
+        )
         console.log(eduContext);
         setEducation({...education,
             edu:"",
