@@ -13,6 +13,7 @@ import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
 import classes from './MobileMenu.module.scss'
 import ChevronRightTwoToneIcon from '@mui/icons-material/ChevronRightTwoTone';
 import ChevronLeftTwoToneIcon from '@mui/icons-material/ChevronLeftTwoTone';
+import { Link } from 'react-router-dom';
 
 const drawerBleeding = 56;
 
@@ -48,7 +49,6 @@ function SwipeableEdgeDrawer(props) {
     <Root >
       <CssBaseline />
       <Global
-      className={classes.global}
         styles={{
           '.MuiDrawer-root > .MuiPaper-root': {
             height: `calc(50% - ${drawerBleeding}px)`,
@@ -72,6 +72,7 @@ function SwipeableEdgeDrawer(props) {
           keepMounted: true,
         }}
       >
+        <Puller/>
         {/* <StyledBox
           sx={{
             position: 'absolute',
@@ -86,9 +87,11 @@ function SwipeableEdgeDrawer(props) {
         <div className={classes.styledbox} >
           {/* <Typography sx={{ p: 2, color: 'text.secondary' }}>51 results</Typography> */}
           <div className={classes.dropuptitle} >
+            <Link to={props.nextAddress} >
               <Button className={classes.arrowbtn} >
                 <ChevronLeftTwoToneIcon />
               </Button>
+            </Link>
               <h5 className={classes.pagename} >{props.title}</h5>
               <Button className={classes.arrowbtn} >
                 <ChevronRightTwoToneIcon />

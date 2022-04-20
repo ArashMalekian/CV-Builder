@@ -10,7 +10,11 @@ import MobileMenu from './MobileMenu/MobileMenu';
 
 export const Header = (props) => {
     const context = useContext(phonecontext)
-    const [state, setstate] = useState(props.adName)
+    const [state, setstate] = useState({
+        adName:props.adName,
+        nextAddress:props.nextAddress,
+        prevAddress : props.prevAddress
+    })
     return (
         <>
         <div className={classes.xlview} >
@@ -27,12 +31,12 @@ export const Header = (props) => {
                 </h2>
             </div>
         </div>
-        <MiniDropUp title={state} />
+        <MiniDropUp title={state.adName} nextAddress={state.nextAddress} />
         </div>
         <div className={classes.smview} >
             <div className={classes.headercontainersm} >
                 <div className={classes.headercontentsm} >
-                    <MobileMenu title={state} />
+                    <MobileMenu title={state.adName} nextAddress={state.nextAddress} />
                 </div>
             </div>
         </div>

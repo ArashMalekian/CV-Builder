@@ -3,6 +3,7 @@ import classes from './MiniDropUp.module.scss'
 import { Button } from '@mui/material'
 import NavigateNextTwoToneIcon from '@mui/icons-material/NavigateNextTwoTone';
 import ChevronLeftTwoToneIcon from '@mui/icons-material/ChevronLeftTwoTone';
+import { Link } from 'react-router-dom';
 
 export const MiniDropUp = (props) => {
 
@@ -22,6 +23,7 @@ export const MiniDropUp = (props) => {
 
     return (
         <div className={classes.btngp} >
+            <Link to={props.nextAddress} >
             <Button className={classes.nextbtn} onMouseMove={nextHandler} onMouseOut={falsyHandler} >
                 {
                     next ? <h4 className={classes.btncontent} >
@@ -31,6 +33,7 @@ export const MiniDropUp = (props) => {
                 <ChevronLeftTwoToneIcon />
                 }
             </Button>
+            </Link>
             <div className={classes.titlebox} >
                 <h5>
                     {props.title}

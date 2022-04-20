@@ -12,7 +12,7 @@ import { Personal } from './Personal/Personal'
 export const PersonalInfo = () => {
     return (
         <div className={classes.container} >
-            <Header adName='اطلاعات شخصی' />
+            <Header adName='اطلاعات شخصی' nextAddress={"/EduAndCertificationinfo"} />
             <div className={classes.pinfocontainer} >
                 <Intro />
                 <div className={classes.contactandpersonal} >
