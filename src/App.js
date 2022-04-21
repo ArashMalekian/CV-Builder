@@ -8,10 +8,13 @@ import { PersonalInfoContext } from './Contexts/PersonalInfoContext';
 import { StateContext } from './Contexts/StateContext';
 import { EducationAndCertificationInfo } from './Components/Infos/Education&CertificationInfo/EducationAndCertificationInfo';
 import { EduAndCerContext } from './Contexts/EduAndCerContext';
+import { Abilities } from './Components/Infos/Abilities/Abilities';
+import { AbilityContext } from './Contexts/AbilityContext';
 
 function App() {
   return (
       <>
+      <AbilityContext>
       <EduAndCerContext>
       <StateContext>
       <PersonalInfoContext>
@@ -19,12 +22,14 @@ function App() {
       <Routes>
         <Route path="/personalinfo" element={<PersonalInfo/>}  />
         <Route path="/EduAndCertificationinfo" element={<EducationAndCertificationInfo />}  />
+        <Route path="/Abilities" element={<Abilities />}  />
         <Route path='/' element={<Welcome/>} />
       </Routes>
       </CVContext>
       </PersonalInfoContext>
       </StateContext>
       </EduAndCerContext>
+      </AbilityContext>
       </>
   );
 }

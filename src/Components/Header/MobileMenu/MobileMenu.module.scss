@@ -17,14 +17,17 @@ $drawerBleeding : 56;
 
 
 .btnbox{
-    background-color: rgb(255, 0, 0);
+    background: url('../../../../public/Pictures/ashkan-forouzani-eBwGgqSt1QA-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
     position: absolute;
     height: 50px;
-    width: 50px;
+    width: 100%;
     right: 0;
     top: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    padding: 2%;
     align-items: center;
 }
 

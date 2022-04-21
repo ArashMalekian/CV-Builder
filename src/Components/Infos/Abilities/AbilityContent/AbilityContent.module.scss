@@ -1,0 +1,109 @@
+@import '../../../../_variable.module.scss';
+
+.container{
+    width: 90%;
+    height: 100%;
+    background-color: $primery;
+    border-radius: 10px;
+    box-shadow: 0 0 50px gray ;
+    z-index: 5;
+    overflow: hidden;
+    height: 550px;
+    margin-top: 15px;
+    h6{
+        color: $error;
+        margin: 5px 0;
+    }
+    h4{
+        margin: 0;
+    }
+}
+
+.contacttitle{
+    background: url('../../../../../public/Pictures/ashkan-forouzani-eBwGgqSt1QA-unsplash.jpg');
+    width: 100%;
+    height: 15%;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.titlebox{
+    background-color: rgba(0, 0, 0, 0.501);
+    height: 100%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h4{
+        margin: 0;
+    }
+}
+
+.content{
+    width: 100%;
+    height: 100%;
+}
+.languagebox{
+    width: 40%;
+    padding: 1%;
+    height: 100%;
+    h3{
+        margin: 0;
+    }
+}
+
+.languageitem{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 150px;
+}
+
+.ratingbox{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 45%;
+}
+
+.inputbox{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.input{
+    width: 35%;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(200, 200, 200);
+    transition: 1s all linear;
+    padding: 2%;
+    text-align: end;
+}
+.input:focus{
+    outline: none;
+    box-shadow: 0 0 20px gray;
+}
+.submitbtn{
+    height: 20%;
+    background-color: $secondary !important;
+    font-size: 17px !important;
+    font-weight: bold !important;
+    color: #fff !important;
+    margin-bottom: 2% !important;
+}
+
+.submitbtndisabled{
+    
+    height: 10%;
+    background-color: $secondary !important;
+    font-size: 17px !important;
+    font-weight: bold !important;
+    margin-bottom: 2% !important;
+}

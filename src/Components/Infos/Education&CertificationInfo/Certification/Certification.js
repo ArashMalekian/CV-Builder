@@ -159,7 +159,7 @@ export const Certification = () => {
                     console.log(education);
                 }}
                 />  
-                <input name='institution' type={'text'} placeholder="دانشگاه" className={classes.input} value={education.institution} onChange={inputChangeHandler} />
+                <input name='institution' type={'text'} placeholder="دانشگاه" id={classes.uniinput} className={classes.input} value={education.institution} onChange={inputChangeHandler} />
                 <Select
                 styles={customStyles}
                 placeholder="استان"

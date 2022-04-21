@@ -7,7 +7,7 @@ import classes from './EducationAndCertification.module.scss'
 export const EducationAndCertificationInfo = () => {
     return (
         <>
-        <Header adName='دوره ها و وضعیت تحصیل' nextAddress={'/gfxjvh'} />
+        <Header adName='دوره ها و وضعیت تحصیل' nextAddress={'/Abilities'} />
             <div className={classes.content} >
                 <Education />
                 <Certification />
